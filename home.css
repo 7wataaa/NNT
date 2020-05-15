@@ -1,0 +1,42 @@
+body{
+    background-color: #28292C;
+    color: #D6D7D9;
+}
+#position{
+    width: 40%;
+    margin: auto;
+    margin-top: 200px;
+    text-align: center;
+}
+#clock_time{
+    font-family: 'League Gothic';
+    font-size: 175px;
+}
+#memoExport{
+    font-size: 16px;
+}
+textarea{
+    color: #28292C;
+    background-color: #D6D7D9;
+    text-align: center;
+    width: 90%;
+    max-width: 250px;
+    resize: vertical;
+}
+#toggleIcon{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 15px 0 15px;
+    border-color: #d6d7d9 transparent transparent transparent;
+    margin: auto;
+    display: block;
+    cursor: pointer;
+}
+.togglewrap #hiddenArea,
+.togglewrap > input[type="checkbox"] {
+    display: none;
+}
+.togglewrap > input[type="checkbox"]:checked ~ #hiddenArea{
+    display: block;
+}

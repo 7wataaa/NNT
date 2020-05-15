@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab </title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <div id="position">
+        <div id="clock_time"></div>
+
+
+        <p id="memoExport"></p>
+
+        <div class="togglewrap">
+            <input type="checkbox" id="displayToggle">
+            <label id="toggleIcon" for="displayToggle"></label>
+
+            <div id="hiddenArea">
+
+                <textarea id="memo0" cols="30" rows="10"></textarea><br>
+                <button id="reset">reset</button>
+                <button id="copy">copy</button>
+                <button id="save">save</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="home_time.js"></script>
+    <script src="home_memo.js"></script>
+</body>
+
+</html>
