@@ -12,6 +12,7 @@ const startScript = () => {
         document.getElementById('memo0').value = ''
     }
     //TODO memo0 の内容がリンクだったら､<a>要素みたいにする
+    //test
 }
 startScript();
 
