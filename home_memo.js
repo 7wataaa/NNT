@@ -31,3 +31,5 @@ const copy0 = str => {
 document.getElementById('save').addEventListener('click', save0)
 document.getElementById('reset').addEventListener('click', reset0)
 document.getElementById('copy').addEventListener('click', copy0)
+
+//TODO memo0 の内容がリンクだったら､<a>要素みたいにする
