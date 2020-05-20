@@ -29,6 +29,7 @@ const startScript = () => {
     }else if(localStorage.memo0.match(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/)){
         //TODO リンクに<a>を追加するのとmemoExportへの反映
         console.log("内容にリンクが含まれてます")//test用
+        //localStorage.memo0 = '<a>' + localStorage.memo0.match(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/) + '</a>' + 
     }else{
         document.getElementById('memoExport').innerText = localStorage.memo0
     };
