@@ -1,18 +1,38 @@
+/**TODO memoExport の内容がリンクだったら､<a>要素を追加する セーブした段階と読み込んだときに起動させる.  
+ * (memoExportがリンクだった場合､<a>タグを追加してそのリンクに飛べるようにする)
+ * 
+ */
+//const linkjudgment = str => { 
+//    if(str.match(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/)){
+//        //TODO リンクだったときの処理
+//
+//    }else{
+//        return;
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
 /**
  * localStrage.memo0 に保存されている文字列を memoExport と textarea#memo0 に出力する 
  */
 const startScript = () => {
     if(localStorage.memo0 === ''){
-        document.getElementById('memoExport').innerText = '_'
+        document.getElementById('memoExport').innerText = ''
     }else{
         document.getElementById('memoExport').innerText = localStorage.memo0
-    }
+    };
     document.getElementById('memo0').value = localStorage.memo0;//memo0 に localStorage.memo0 を入力する
     if (document.getElementById('memo0').value === 'undefined') {
         document.getElementById('memo0').value = ''
-    }
-    //TODO memo0 の内容がリンクだったら､<a>要素みたいにする
-    //testtext
+    };
 }
 startScript();
 
