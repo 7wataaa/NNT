@@ -4,7 +4,7 @@
  */
 //const linkjudgment = str => { 
 //    if(str.match(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/)){
-//        //TODO リンクだったときの処理
+//        
 //
 //    }else{
 //        return;
@@ -26,10 +26,13 @@
 const startScript = () => {
     if(localStorage.memo0 === ''){
         document.getElementById('memoExport').innerText = ''
+    }else if(){
+        //TODO リンクだったときの処理
     }else{
         document.getElementById('memoExport').innerText = localStorage.memo0
     };
-    document.getElementById('memo0').value = localStorage.memo0;//memo0 に localStorage.memo0 を入力する
+
+    document.getElementById('memo0').value = localStorage.memo0;//memo0(テキストエリア) に localStorage.memo0 を入力する
     if (document.getElementById('memo0').value === 'undefined') {
         document.getElementById('memo0').value = ''
     };
