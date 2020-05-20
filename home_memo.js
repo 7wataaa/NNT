@@ -43,6 +43,7 @@ const save0 = () => {
 const reset0 = () => {
     localStorage.removeItem('memo0');//localStorage.memo0 を削除する
     document.getElementById('memo0').value = '';//フォームの内容を削除する
+    localStorage.memo0 = ''
     startScript()
 }
 const copy0 = str => {
