@@ -38,12 +38,12 @@ startScript();
 
 const save0 = () => {
     localStorage.memo0 = document.getElementById('memo0').value;//memo0 の内容を localStorage.memo0 に保存する
-    //document.getElementById('memoExport').innerHTML = '<p>' + document.getElementById('memo0').value + '</p>'
     startScript()
 }
 const reset0 = () => {
     localStorage.removeItem('memo0');//localStorage.memo0 を削除する
     document.getElementById('memo0').value = '';//フォームの内容を削除する
+    startScript()
 }
 const copy0 = str => {
     //todo コピーする処理
