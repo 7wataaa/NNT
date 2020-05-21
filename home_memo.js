@@ -37,6 +37,10 @@ const copy0 = str => {
     document.execCommand('copy');
     console.log('コピーしますた')
 }
+const paste0 = () =>{//TODO ペースト処理の追加
+
+}
 document.getElementById('save').addEventListener('click', save0)
 document.getElementById('reset').addEventListener('click', reset0)
 document.getElementById('copy').addEventListener('click', copy0)
+document.getElementById('paste').addEventListener('click', paste0)
