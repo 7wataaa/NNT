@@ -1,35 +1,15 @@
-/**TODO memoExport の内容がリンクだったら､<a>要素を追加する セーブした段階と読み込んだときに起動させる.  
- * (memoExportがリンクだった場合､<a>タグを追加してそのリンクに飛べるようにする)
+/**最初に読み込みたいものを放り込んでおく
  * 
- */
-//const linkjudgment = str => { 
-//    if(str.match(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/)){
-//        
-//
-//    }else{
-//        return;
-//    }
-//}
-
-
-
-
-
-
-
-
-
-
-/**
  * localStrage.memo0 に保存されている文字列を memoExport と textarea#memo0 に出力する 
  */
 const startScript = () => {
-    if(localStorage.memo0 === ''){
+    if(localStorage.memo0 === ''){//ここの条件分岐はlocalstorageの内容を判定､memoExportかlocalstorageの書き換えを行う
         document.getElementById('memoExport').innerText = ''
+    
     }else if(localStorage.memo0.match(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/)){
         //TODO リンクに<a>を追加するのとmemoExportへの反映
-        console.log("内容にリンクが含まれてます")//test用
-        //localStorage.memo0 = '<a>' + localStorage.memo0.match(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/) + '</a>' + 
+        document.getElementById('memoExport').replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/, '<a href="$&">$&</a>')
+        
     }else{
         document.getElementById('memoExport').innerText = localStorage.memo0
     };
@@ -60,4 +40,3 @@ const copy0 = str => {
 document.getElementById('save').addEventListener('click', save0)
 document.getElementById('reset').addEventListener('click', reset0)
 document.getElementById('copy').addEventListener('click', copy0)
-
