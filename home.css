@@ -11,6 +11,7 @@ body{
 #clock_time{/*TODO フォントのジャギーを解消する*/
     font-family: 'League Gothic';
     font-size: 175px;
+    transform: rotate(0.001deg);
 }
 #memoExport{
     font-size: 16px;
