@@ -10,7 +10,6 @@ const startScript = () => {
 
         const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g, '<a href="$&">$&</a>').replace(/\r?\n/g, '<br>')
         document.getElementById('memoExport').innerHTML = Exportreplace//memoExportのリンクに<a>を追加する
-        //TODO 改行がされない問題,あとはテスト
     }else{
         document.getElementById('memoExport').innerText = localStorage.memo0
     };
