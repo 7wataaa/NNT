@@ -7,9 +7,10 @@ const startScript = () => {
         document.getElementById('memoExport').innerText = ''
     
     }else if(localStorage.memo0.match(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/)){
-        //TODO リンクに<a>を追加するのとmemoExportへの反映
-        document.getElementById('memoExport').replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/, '<a href="$&">$&</a>')
-        
+
+        const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/, '<a href="$&">$&</a>')//memoExportのリンクに<a>を追加した文字列を出せる
+        document.getElementById('memoExport').innerHTML = Exportreplace
+        //TODO 改行がされない問題の解決
     }else{
         document.getElementById('memoExport').innerText = localStorage.memo0
     };
