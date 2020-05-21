@@ -8,9 +8,10 @@ const startScript = () => {
     
     }else if(localStorage.memo0.match(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/)){
 
-        const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/, '<a href="$&">$&</a>')//memoExportのリンクに<a>を追加した文字列を出せる
-        document.getElementById('memoExport').innerHTML = Exportreplace
+        const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/, '<a href="$&">$&</a>')
+        document.getElementById('memoExport').innerHTML = Exportreplace//memoExportのリンクに<a>を追加する
         //TODO 改行がされない問題の解決
+        //TODO 2つ以上のリンクがあったとき2つ目以降<a>がはられていない
     }else{
         document.getElementById('memoExport').innerText = localStorage.memo0
     };
