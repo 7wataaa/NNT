@@ -8,12 +8,15 @@ body{
     margin-top: 200px;
     text-align: center;
 }
-#clock_time{
+#clock_time{/*TODO フォントのジャギーを解消する*/
     font-family: 'League Gothic';
     font-size: 175px;
 }
 #memoExport{
     font-size: 16px;
+}
+a{/*TODO リンクを見やすくする*/
+
 }
 textarea{
     color: #28292C;
