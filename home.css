@@ -16,7 +16,7 @@ body{
     font-size: 16px;
 }
 a{/*TODO リンクを見やすくする*/
-
+    color: #97D9F7;
 }
 textarea{
     color: #28292C;
