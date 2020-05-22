@@ -4,6 +4,7 @@
  * 
  */
 const startScript = () => {
+    localStorage.memo0 = undefined
     if(localStorage.memo0 === undefined){//ここの条件分岐はlocalstorageの内容を判定､memoExportもしくはlocalstorageの書き換えを行う
         document.getElementById('memoExport').innerText = ' '
     
