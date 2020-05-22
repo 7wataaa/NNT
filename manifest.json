@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "NNT",
-    "version": "1.0",
+    "version": "1.1.1",
     "description": "新しいタブを開くで表示されるページを上書きする",
     "icons":{
         "48": "grayIcon.png"
