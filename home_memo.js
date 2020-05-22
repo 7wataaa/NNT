@@ -4,7 +4,7 @@
  * 
  */
 const startScript = () => {
-    if(localStorage.memo0 === ''){//ここの条件分岐はlocalstorageの内容を判定､memoExportもしくはlocalstorageの書き換えを行う
+    if(localStorage.memo0 === ' '){//ここの条件分岐はlocalstorageの内容を判定､memoExportもしくはlocalstorageの書き換えを行う
         document.getElementById('memoExport').innerText = ''
     
     //}else if(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/,exec(localStorage.memo0)){
