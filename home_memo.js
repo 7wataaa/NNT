@@ -20,27 +20,33 @@ const startScript = () => {
     };
 }
 startScript();
-
+/**
+ * memo0(テキストエリア) の内容を localStorage.memo0 に保存して再読み込みする
+ */
 const save0 = () => {
-    localStorage.memo0 = document.getElementById('memo0').value;//memo0 の内容を localStorage.memo0 に保存する
+    localStorage.memo0 = document.getElementById('memo0').value;
     startScript()
 }
+/**
+ * localStorage.memo0 と､フォームの内容を削除する
+ */
 const reset0 = () => {
-    localStorage.removeItem('memo0');//localStorage.memo0 を削除する
-    document.getElementById('memo0').value = '';//フォームの内容を削除する
+    localStorage.removeItem('memo0');
+    document.getElementById('memo0').value = '';
     localStorage.memo0 = ''
     startScript()
 }
-const copy0 = str => {
-    //todo コピーする処理
+/**
+ * memo0(テキストエリア) を範囲選択してコピーする
+ */
+const copy0 = () => {
     document.getElementById('memo0').select();
     document.execCommand('copy');
-    console.log('コピーしますた')
 }
-const paste0 = () =>{//TODO ペースト処理の追加
-
-}
+//const paste0 = () => {
+//    
+//    };
 document.getElementById('save').addEventListener('click', save0)
 document.getElementById('reset').addEventListener('click', reset0)
 document.getElementById('copy').addEventListener('click', copy0)
-document.getElementById('paste').addEventListener('click', paste0)
+//document.getElementById('paste').addEventListener('click', paste0)
