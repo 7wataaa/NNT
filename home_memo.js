@@ -1,22 +1,23 @@
-/**最初に読み込みたいものを放り込んでおく
+/**最初に読み込みたいもの
  * 
  * 1.localStrage.memo0 に保存されている文字列を memoExport と textarea#memo0 に出力する 
  * 
  */
 const startScript = () => {
-    
-    if(localStorage.memo0 == undefined){//ここの条件分岐はlocalstorageの内容を判定､memoExportもしくはlocalstorageの書き換えを行う
+    if(localStorage.memo0 == undefined){
         localStorage.memo0 = ' '
         startScript();
-    }else if(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g.test(localStorage.memo0)){
+    };
+
+    if(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g.test(localStorage.memo0)){
         const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g, '<a href="$&">$&</a>').replace(/\r?\n/g, '<br>')
-    
-        document.getElementById('memoExport').innerHTML = Exportreplace//memoExportのリンクにアンカー追加､改行を<br>に変更
+        
+        document.getElementById('memoExport').innerHTML = Exportreplace
     }else{
         document.getElementById('memoExport').innerText = localStorage.memo0
     };
-
-    document.getElementById('memo0').value = localStorage.memo0;//memo0(テキストエリア) に localStorage.memo0 を入力する
+    
+    document.getElementById('memo0').value = localStorage.memo0;
     if (document.getElementById('memo0').value === 'undefined') {
         document.getElementById('memo0').value = ''
     };
@@ -35,7 +36,6 @@ const save0 = () => {
 const reset0 = () => {
     localStorage.removeItem('memo0');
     document.getElementById('memo0').value = '';
-    localStorage.memo0 = undefined
     startScript()
 }
 /**
