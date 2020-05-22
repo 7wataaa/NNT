@@ -7,7 +7,7 @@ const startScript = () => {
     if(localStorage.memo0 === ''){//ここの条件分岐はlocalstorageの内容を判定､memoExportもしくはlocalstorageの書き換えを行う
         document.getElementById('memoExport').innerText = ''
     
-    }else if(localStorage.memo0.match(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/)){
+    }else if(localStorage.memo0.test(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/)){
 
         const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g, '<a href="$&">$&</a>').replace(/\r?\n/g, '<br>')
         document.getElementById('memoExport').innerHTML = Exportreplace//memoExportのリンクにアンカー追加､改行を<br>に変更
