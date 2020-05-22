@@ -4,8 +4,8 @@
  * 
  */
 const startScript = () => {
-    if(localStorage.memo0 === ' '){//ここの条件分岐はlocalstorageの内容を判定､memoExportもしくはlocalstorageの書き換えを行う
-        document.getElementById('memoExport').innerText = ''
+    if(localStorage.memo0 === undefined){//ここの条件分岐はlocalstorageの内容を判定､memoExportもしくはlocalstorageの書き換えを行う
+        document.getElementById('memoExport').innerText = ' '
     
     //}else if(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/,exec(localStorage.memo0)){
     //    const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g, '<a href="$&">$&</a>').replace(/\r?\n/g, '<br>')
@@ -34,7 +34,7 @@ const save0 = () => {
 const reset0 = () => {
     localStorage.removeItem('memo0');
     document.getElementById('memo0').value = '';
-    localStorage.memo0 = ''
+    localStorage.memo0 = undefined
     startScript()
 }
 /**
