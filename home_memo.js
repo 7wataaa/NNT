@@ -45,6 +45,12 @@ const copy0 = () => {
     document.getElementById('memo0').select();
     document.execCommand('copy');
 }
+
+const sync0 = () => {
+    //TODO sync0の処理
+}
+
 document.getElementById('save').addEventListener('click', save0)
 document.getElementById('reset').addEventListener('click', reset0)
 document.getElementById('copy').addEventListener('click', copy0)
+document.getElementById('sync').addEventListener('synk', sync0)
