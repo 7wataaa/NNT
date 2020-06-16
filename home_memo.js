@@ -32,7 +32,7 @@ const save0 = () => {
 }
 
 /**
- * memo0(テキストエリア) の内容を chrome.storage.synkに登録する
+ * 同期する内容を上書きする
  */
 const sync0 = () => {
     let obj = new Object()
