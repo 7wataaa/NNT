@@ -5,7 +5,7 @@
  */
 const startScript = () => {
     if(localStorage.memo0 == undefined){
-        localStorage.memo0 = ' '
+        localStorage.memo0 = ''
         startScript();
     };
 
@@ -22,7 +22,7 @@ const startScript = () => {
         document.getElementById('memo0').value = ''
     };
 }
-startScript();
+
 /**
  * memo0(テキストエリア) の内容を localStorage.memo0 に保存して再読み込みする
  */
@@ -35,6 +35,7 @@ const save0 = () => {
  * 同期する内容を上書きする
  */
 const sync0 = () => {
+    //TODO localstorage.memo0がなかった時にsyncしているものを読み込む処理
     save0()
     let obj = new Object()
     obj = {"syncMemo": localStorage.memo0}
@@ -53,6 +54,7 @@ const reset0 = () => {
     document.getElementById('memo0').value = '';
     startScript()
 }
+
 /**
  * memo0(テキストエリア) を範囲選択してコピーする
  */
@@ -61,6 +63,7 @@ const copy0 = () => {
     document.execCommand('copy');
 }
 
+startScript()
 
 document.getElementById('save').addEventListener('click', save0)
 document.getElementById('sync').addEventListener('click', sync0)
