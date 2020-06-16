@@ -35,11 +35,13 @@ const save0 = () => {
  * 同期する内容を上書きする
  */
 const sync0 = () => {
+    save0()
     let obj = new Object()
     obj = {"syncMemo": localStorage.memo0}
 
     chrome.storage.sync.set(obj, () => {
         console.log(localStorage.memo0 + 'を同期に追加しました')
+        chrome.storage.sync.get("syncMemo",(r)=>{console.log(r)})
     })
 }
 
