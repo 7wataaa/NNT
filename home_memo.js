@@ -44,8 +44,8 @@ const sync0 = () => {
 
         chrome.storage.sync.set(obj, () => {
             if (chrome.runtime.lastError) {
-                alert('データが大きすぎます。save: 5MB以下, sync: 100KB以下 におさめてください');
-                chrome.storage.sync.get("syncedNote", r => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
+                alert('データが大きすぎます。saveなら5MB以下, syncなら100KB以下 におさめてください');
+                console.warn('データが大きすぎます。save: 5MB以下, sync: 100KB以下 におさめてください')
             }
             chrome.storage.sync.get("syncedNote", r => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
         })
