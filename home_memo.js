@@ -41,7 +41,7 @@ const sync0 = () => {
     obj = {"syncMemo": localStorage.memo0}
 
     chrome.storage.sync.set(obj, () => {
-        console.log('"' + localStorage.memo0 + '"を同期に追加しました')
+        console.log('同期する内容を"' + localStorage.memo0 + '"に変更しました')
         chrome.storage.sync.get("syncMemo",(r)=>{console.log(r)})
     })
 }
