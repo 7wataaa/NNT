@@ -4,19 +4,19 @@
  * 
  */
 const startScript = () => {
-    if(localStorage.memo0 == undefined){
+    if (localStorage.memo0 == undefined) {
         localStorage.memo0 = ''
         startScript();
     };
 
-    if(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g.test(localStorage.memo0)){
+    if (/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g.test(localStorage.memo0)) {
         const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g, '<a href="$&">$&</a>').replace(/\r?\n/g, '<br>')
-        
+
         document.getElementById('memoExport').innerHTML = Exportreplace
-    }else{
+    } else {
         document.getElementById('memoExport').innerText = localStorage.memo0
     };
-    
+
     document.getElementById('memo0').value = localStorage.memo0;
     if (document.getElementById('memo0').value === 'undefined') {
         document.getElementById('memo0').value = ''
@@ -35,15 +35,18 @@ const save0 = () => {
  * 同期する内容を上書きする
  */
 const sync0 = () => {
-    //TODO localstorage.memo0がなかった時にsyncしているものを読み込む処理
-    save0()
-    let obj = new Object()
-    obj = {"syncMemo": localStorage.memo0}
+    if (!localStorage.memo0) {
+        //TODO syncしているものを読み込む処理
+    } else {
+        save0()
+        let obj = new Object()
+        obj = { "syncMemo": localStorage.memo0 }
 
-    chrome.storage.sync.set(obj, () => {
-        console.log('同期する内容を"' + localStorage.memo0 + '"に変更しました')
-        chrome.storage.sync.get("syncMemo",(r)=>{console.log(r)})
-    })
+        chrome.storage.sync.set(obj, () => {
+            console.log('同期する内容を"' + localStorage.memo0 + '"に変更しました')
+            chrome.storage.sync.get("syncMemo", (r) => { console.log(r) })
+        })
+    }
 }
 
 /**
