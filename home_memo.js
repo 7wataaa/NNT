@@ -30,7 +30,7 @@ const save0 = () => {
  * 同期する内容を上書きする
  */
 const sync0 = () => {
-    if (localStorage.memo0 === '') {
+    if (document.getElementById('memo0').value === '') {
         chrome.storage.sync.get("syncedNote", result => {
             localStorage.memo0 = result.syncedNote
             startScript()
