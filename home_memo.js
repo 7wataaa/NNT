@@ -1,7 +1,5 @@
-/**最初に読み込みたいもの
- * 
- * 1.localStrage.memo0 に保存されている文字列を memoExport と textarea#memo0 に出力する 
- * 
+/**
+ * ・undefined対策 ・localStorageからmemoExportへ(必要があれば変換してから)出力する
  */
 const startScript = () => {
     if (localStorage.memo0 == undefined) {
@@ -18,9 +16,6 @@ const startScript = () => {
     };
 
     document.getElementById('memo0').value = localStorage.memo0;
-    if (document.getElementById('memo0').value === 'undefined') {
-        document.getElementById('memo0').value = ''
-    };
 }
 
 /**
@@ -35,7 +30,7 @@ const save0 = () => {
  * 同期する内容を上書きする
  */
 const sync0 = () => {
-    if (localStorage.memo0 === "") {
+    if (localStorage.memo0 === '') {
         chrome.storage.sync.get("syncedNote", result => {
             localStorage.memo0 = result.syncedNote
             startScript()
@@ -47,7 +42,7 @@ const sync0 = () => {
         obj = { "syncedNote": localStorage.memo0 }
 
         chrome.storage.sync.set(obj, () => {
-            chrome.storage.sync.get("syncedNote", (r) => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
+            chrome.storage.sync.get("syncedNote", r => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
         })
     }
 }
