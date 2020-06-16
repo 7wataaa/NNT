@@ -35,16 +35,20 @@ const save0 = () => {
  * 同期する内容を上書きする
  */
 const sync0 = () => {
-    if (!localStorage.memo0) {
-        //TODO syncしているものを読み込む処理
+    if (localStorage.memo0 === "") {
+        chrome.storage.sync.get("syncedNote", result => {
+            localStorage.memo0 = result.syncedNote
+            startScript()
+            console.log('syncedNoteを読み込みました')
+        })
     } else {
         save0()
         let obj = new Object()
-        obj = { "syncMemo": localStorage.memo0 }
+        obj = { "syncedNote": localStorage.memo0 }
 
         chrome.storage.sync.set(obj, () => {
             console.log('同期する内容を"' + localStorage.memo0 + '"に変更しました')
-            chrome.storage.sync.get("syncMemo", (r) => { console.log(r) })
+            chrome.storage.sync.get("syncedNote", (r) => { console.log(r) })
         })
     }
 }
