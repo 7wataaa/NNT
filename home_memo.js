@@ -31,6 +31,7 @@ const save0 = () => {
  */
 const sync0 = () => {
     if (document.getElementById('memo0').value === '') {
+
         chrome.storage.sync.get("syncedNote", result => {
             localStorage.memo0 = result.syncedNote
             startScript()
@@ -42,8 +43,13 @@ const sync0 = () => {
         obj = { "syncedNote": localStorage.memo0 }
 
         chrome.storage.sync.set(obj, () => {
-            chrome.storage.sync.get("syncedNote", r => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
+            if (chrome.runtime.lastError) {
+                alert('データが大きすぎます。save: 5MB以下, sync: 100KB以下 におさめてください');
+
+                chrome.storage.sync.get("syncedNote", r => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
+            }
         })
+
     }
 }
 
