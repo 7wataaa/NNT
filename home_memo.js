@@ -35,7 +35,12 @@ const save0 = () => {
  * memo0(テキストエリア) の内容を chrome.storage.synkに登録する
  */
 const sync0 = () => {
-    //TODO 処理
+    let obj = new Object()
+    obj = {"syncMemo": localStorage.memo0}
+
+    chrome.storage.sync.set(obj, () => {
+        console.log(localStorage.memo0 + 'を同期に追加しました')
+    })
 }
 
 /**
@@ -56,6 +61,6 @@ const copy0 = () => {
 
 
 document.getElementById('save').addEventListener('click', save0)
+document.getElementById('sync').addEventListener('click', sync0)
 document.getElementById('reset').addEventListener('click', reset0)
 document.getElementById('copy').addEventListener('click', copy0)
-document.getElementById('sync').addEventListener('click', sync0)
