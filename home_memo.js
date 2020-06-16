@@ -30,6 +30,14 @@ const save0 = () => {
     localStorage.memo0 = document.getElementById('memo0').value;
     startScript()
 }
+
+/**
+ * memo0(テキストエリア) の内容を chrome.storage.synkに登録する
+ */
+const sync0 = () => {
+    //TODO 処理
+}
+
 /**
  * localStorage.memo0 と､フォームの内容を削除する
  */
@@ -46,11 +54,8 @@ const copy0 = () => {
     document.execCommand('copy');
 }
 
-const sync0 = () => {
-    //TODO sync0の処理
-}
 
 document.getElementById('save').addEventListener('click', save0)
 document.getElementById('reset').addEventListener('click', reset0)
 document.getElementById('copy').addEventListener('click', copy0)
-document.getElementById('sync').addEventListener('synk', sync0)
+document.getElementById('sync').addEventListener('click', sync0)
