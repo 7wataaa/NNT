@@ -5,14 +5,14 @@ const startScript = () => {
     if (localStorage.memo0 == undefined) {
         localStorage.memo0 = ''
         startScript();
-    };
+    } else if (localStorage.memo0) {
+        if (/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g.test(localStorage.memo0)) {
+            const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g, '<a href="$&">$&</a>').replace(/\r?\n/g, '<br>')
 
-    if (/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g.test(localStorage.memo0)) {
-        const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g, '<a href="$&">$&</a>').replace(/\r?\n/g, '<br>')
-
-        document.getElementById('memoExport').innerHTML = Exportreplace
-    } else {
-        document.getElementById('memoExport').innerText = localStorage.memo0
+            document.getElementById('memoExport').innerHTML = Exportreplace
+        } else {
+            document.getElementById('memoExport').innerText = localStorage.memo0
+        }
     };
 
     document.getElementById('memo0').value = localStorage.memo0;
@@ -38,21 +38,25 @@ const sync0 = () => {
             console.log('syncedNoteを読み込みました')
         })
     } else {
-        save0()
-        let obj = new Object()
-        obj = { "syncedNote": localStorage.memo0 }
-        if (localStorage.memo0 === undefined) {
-            obj.syncedNote = 'syncは約10KB,saveは約5MBまで保存できます\n10KBは約5000文字です'
-        }
-
-        chrome.storage.sync.set(obj, () => {
-            if (chrome.runtime.lastError) {
-                alert('データが大きすぎます。saveなら5MB以下, syncなら10KB以下 におさめてください');
-                console.warn('データが大きすぎます。save: 5MB以下, sync: 10KB以下 におさめてください')
-            }
-            chrome.storage.sync.get("syncedNote", r => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
+        let setObj = new Object()
+        chrome.storage.sync.get("syncedNote", result => {
+            setObj = result
         })
 
+        if (setObj.syncedNote === "") {
+            setObj.syncedNote = 'syncは約10KB, saveは約5MBまで保存できます\n10KBは約5000文字です'
+        } else {
+            save0()
+            setObj.syncedNote = localStorage.memo0
+
+            chrome.storage.sync.set(setObj, () => {
+                if (chrome.runtime.lastError) {
+                    alert('データが大きすぎます。saveなら5MB以下, syncなら10KB以下 におさめてください');
+                    console.warn('データが大きすぎます。saveなら5MB以下, syncなら10KB以下 におさめてください')
+                }
+                chrome.storage.sync.get("syncedNote", r => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
+            })
+        }
     }
 }
 
