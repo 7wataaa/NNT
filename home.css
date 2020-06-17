@@ -1,6 +1,8 @@
 @font-face {
-    font-family: League Gothic;
+    font-family: 'League Gothic';
     src: url('leaguegothic-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 body{
     background-color: #28292C;
@@ -13,7 +15,7 @@ body{
     text-align: center;
 }
 #clock_time{
-    font-family: League Gothic;
+    font-family: 'League Gothic';
     font-size: 175px;
     transform: rotate(0.001deg);
 }
