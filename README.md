@@ -13,5 +13,6 @@
  機能は追加予定
 
 **スクリーンショット**
+<img width="1136" alt="prb" src="https://user-images.githubusercontent.com/65275342/84857117-4743b980-b0a3-11ea-8f2a-df7bcfba75cb.png">
 
 	Copyright (c) 2010, Caroline Hadilaksono & Micah Rich <caroline@hadilaksono, micah@micahrich.com>, with Reserved Font Name: "League Gothic".
