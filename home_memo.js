@@ -41,7 +41,7 @@ const sync0 = () => {
         save0()
         let obj = new Object()
         obj = { "syncedNote": localStorage.memo0 }
-        if (!obj.syncedNote) {
+        if (obj.syncedNote == undefined) {
             obj.syncedNote = 'syncは約10KB,saveは約5MBまで保存できます\n10KBは約5000文字です'
         }
 
