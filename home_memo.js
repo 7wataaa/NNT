@@ -27,36 +27,35 @@ const save0 = () => {
 }
 
 /**
- * 同期する内容を上書きする
+ * ・テキストエリアに文字がある時→同期する内容を上書きする・テキストエリアになにもない時→登録されている文字を読み込む、なければはじめの文を登録して再帰
  */
 const sync0 = () => {
     if (document.getElementById('memo0').value === '') {
 
         chrome.storage.sync.get("syncedNote", result => {
-            localStorage.memo0 = result.syncedNote
-            startScript()
-            console.log('syncedNoteを読み込みました')
+            if (!result.syncedNote) {
+                chrome.storage.sync.set({ 'syncedNote': 'syncは約10KB, saveは約5MBまで保存できます\n10KBは約5000文字です' }, () => {
+                    sync0();
+                })
+            } else {
+                localStorage.memo0 = result.syncedNote
+                startScript()
+                console.log('syncedNoteを読み込みました')
+            }
         })
+
     } else {
-        let setObj = new Object()
-        chrome.storage.sync.get("syncedNote", result => {
-            setObj = result
+        save0()
+
+        let setObj = { 'syncedNote': localStorage.memo0 }
+
+        chrome.storage.sync.set(setObj, () => {
+            if (chrome.runtime.lastError) {
+                alert('データが大きすぎます。saveなら5MB以下, syncなら10KB以下 におさめてください');
+                console.warn('データが大きすぎます。saveなら5MB以下, syncなら10KB以下 におさめてください')
+            }
+            chrome.storage.sync.get("syncedNote", r => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
         })
-
-        if (setObj.syncedNote === "") {
-            setObj.syncedNote = 'syncは約10KB, saveは約5MBまで保存できます\n10KBは約5000文字です'
-        } else {
-            save0()
-            setObj.syncedNote = localStorage.memo0
-
-            chrome.storage.sync.set(setObj, () => {
-                if (chrome.runtime.lastError) {
-                    alert('データが大きすぎます。saveなら5MB以下, syncなら10KB以下 におさめてください');
-                    console.warn('データが大きすぎます。saveなら5MB以下, syncなら10KB以下 におさめてください')
-                }
-                chrome.storage.sync.get("syncedNote", r => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
-            })
-        }
     }
 }
 
