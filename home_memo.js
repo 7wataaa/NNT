@@ -41,11 +41,14 @@ const sync0 = () => {
         save0()
         let obj = new Object()
         obj = { "syncedNote": localStorage.memo0 }
+        if (!obj.syncedNote) {
+            obj.syncedNote = 'syncは約10KB,saveは約5MBまで保存できます\n10KBは約5000文字です'
+        }
 
         chrome.storage.sync.set(obj, () => {
             if (chrome.runtime.lastError) {
-                alert('データが大きすぎます。saveなら5MB以下, syncなら100KB以下 におさめてください');
-                console.warn('データが大きすぎます。save: 5MB以下, sync: 100KB以下 におさめてください')
+                alert('データが大きすぎます。saveなら5MB以下, syncなら10KB以下 におさめてください');
+                console.warn('データが大きすぎます。save: 5MB以下, sync: 10KB以下 におさめてください')
             }
             chrome.storage.sync.get("syncedNote", r => { console.log('同期する内容を"' + r.syncedNote + '"に変更しました') })
         })
