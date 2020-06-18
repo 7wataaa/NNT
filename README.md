@@ -1,7 +1,7 @@
 # NNT
 
 
-### 新しいタブに時計とメモ機能を表示する。
+### 新しいタブを変更して、時計とメモを表示します
 ※chrome 拡張機能として作成。
 ※macbook airで開発
  
@@ -19,10 +19,8 @@
 <img width="1279" alt="4" src="https://user-images.githubusercontent.com/65275342/84972758-8123c700-b15a-11ea-9858-ef9efe8eec9b.png">
 
 
+
+**ライセンス**
+font →League Gothicを使わせていただきました。
+
 	Copyright (c) 2010, Caroline Hadilaksono & Micah Rich <caroline@hadilaksono, micah@micahrich.com>, with Reserved Font Name: "League Gothic".
-
-	This Font Software is licensed under the SIL Open Font License, Version 1.1.
-	This license is copied below, and is also available with a FAQ at:
-	http://scripts.sil.org/OFL
-
-	Version 1.1 - 26 February 2007
