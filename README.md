@@ -21,6 +21,7 @@
 
 
 **ライセンス**
-font →League Gothicを使わせていただきました。
+
+フォントは、League Gothicを使わせていただきました。
 
 	Copyright (c) 2010, Caroline Hadilaksono & Micah Rich <caroline@hadilaksono, micah@micahrich.com>, with Reserved Font Name: "League Gothic".
