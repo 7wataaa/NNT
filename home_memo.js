@@ -5,15 +5,15 @@ const startScript = () => {
     if (localStorage.memo0 == undefined) {
         localStorage.memo0 = ''
         startScript();
-    } else if (localStorage.memo0) {
-        if (/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g.test(localStorage.memo0)) {
-            const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g, '<a href="$&">$&</a>').replace(/\r?\n/g, '<br>')
+    } else if (/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g.test(localStorage.memo0)) {
 
-            document.getElementById('memoExport').innerHTML = Exportreplace
-        } else {
-            document.getElementById('memoExport').innerText = localStorage.memo0
-        }
-    };
+        const Exportreplace = localStorage.memo0.replace(/(https?|ftp)(:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+)/g, '<a href="$&">$&</a>').replace(/\r?\n/g, '<br>')
+
+        document.getElementById('memoExport').innerHTML = Exportreplace
+
+    } else {
+        document.getElementById('memoExport').innerText = localStorage.memo0
+    }
 
     document.getElementById('memo0').value = localStorage.memo0;
 }
