@@ -1,5 +1,4 @@
 # NNT
-***
 
 ### 新しいタブを変更して、時計とメモを表示します
 
@@ -32,7 +31,8 @@
 
 ※chrome 拡張機能として作成。 
 
-※macbook airで開発しました
+※macbook airで開発しました  
+
 **スクリーンショット**
 <img width="1279" alt="1" src="https://user-images.githubusercontent.com/65275342/84972648-49b51a80-b15a-11ea-85e5-87b271ef5ca7.png">
 <img width="1279" alt="2" src="https://user-images.githubusercontent.com/65275342/84972671-5a659080-b15a-11ea-84e0-1da65cf310d7.png">
