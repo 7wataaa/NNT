@@ -2,16 +2,19 @@
     font-family: 'League Gothic';
     src: url('leaguegothic-regular-webfont.woff') format('woff');
 }
+/*↓全体の設定*/
 body{
     background-color: #28292C;
     color: #D6D7D9;
 }
+/*TODO bodyのクラス別での色変更*/
 #position{
     width: 40%;
     margin: auto;
     margin-top: 200px;
     text-align: center;
 }
+/*メインコンテンツ*/
 #clock_time{
     font-family: 'League Gothic';
     font-size: 175px;
@@ -41,6 +44,7 @@ textarea{
     display: block;
     cursor: pointer;
 }
+/*表示非表示*/
 .togglewrap #hiddenArea,
 .togglewrap > input[type="checkbox"] {
     display: none;
