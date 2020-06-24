@@ -4,7 +4,9 @@
     "version": "2.3.0",
     "description": "新しいタブを開くで表示されるページを上書きします",
     "icons":{
-        "48": "grayIcon.png"
+        "16": "img/g16",
+        "48": "img/g48",
+        "128": "img/g128"
     },
     "chrome_url_overrides": {
         "newtab": "home.html"
