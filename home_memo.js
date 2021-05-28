@@ -8,7 +8,8 @@ const startScript = () => {
   } else if (
     /https?:\/\/[\w!\?/\+\-_~=;\.,\*&@#\$%\(\)'\[\]]+/g.test(localStorage.memo0)
   ) {
-    document.getElementById("memoExport").textContent = "";
+    const memoExport = document.getElementById("memoExport");
+    memoExport.textContent = "";
 
     const memoStr = localStorage.memo0;
 
@@ -22,13 +23,14 @@ const startScript = () => {
         anchor.href = str;
         anchor.innerText = str;
 
-        document
-          .getElementById("memoExport")
-          .insertAdjacentElement("beforeend", anchor);
+        memoExport.insertAdjacentElement("beforeend", anchor);
+      } else if (/\r\n|\n|\r/g.test(str)) {
+        for (const e of str.split(/\r\n|\n|\r/g)) {
+          memoExport.insertAdjacentText("beforeend", e);
+          memoExport.insertAdjacentHTML("beforeend", "<br>");
+        }
       } else {
-        document
-          .getElementById("memoExport")
-          .insertAdjacentText("beforeend", str);
+        memoExport.insertAdjacentText("beforeend", str);
       }
     }
   } else {
