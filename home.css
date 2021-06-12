@@ -1,82 +1,88 @@
-@font-face{
-    font-family: 'League Gothic';
-    src: url('leaguegothic-regular-webfont.woff') format('woff');
+@font-face {
+  font-family: "League Gothic";
+  src: url("leaguegothic-regular-webfont.woff") format("woff");
 }
 
 @media (prefers-color-scheme: light) {
-    :root{
-        --backgroundColor: #DADADA;
-        --color: #ffffff;
-        --aColor: #79bfdf;
-        --textareaColor: #464242;
-        --textareaBackGColor: #ffffff;
-        --toggleicon: #ffffff transparent transparent transparent;
-        --ExportFontsize: 18px;
-        --ExportFontweight: bold;
-    }
-}
-@media (prefers-color-scheme: dark) {
-    :root{
-        --backgroundColor: #28292C;
-        --color: #D6D7D9;
-        --aColor: #97D9F7;
-        --textareaColor: #28292C;
-        --textareaBackGColor: #D6D7D9;
-        --toggleicon: #d6d7d9 transparent transparent transparent;
-        --ExportFontsize: 16px;
-        --ExportFontweight: normal;
-    }
-}
-/*↓全体の設定*/
-body{
-    background-color: var(--backgroundColor);
-    color: var(--color);
-    transition: 0.5s;
+  :root {
+    --backgroundColor: #dadada;
+    --color: #ffffff;
+    --aColor: #79bfdf;
+    --textareaColor: #464242;
+    --textareaBackGColor: #ffffff;
+    --toggleicon: #ffffff transparent transparent transparent;
+    --ExportFontsize: 18px;
+    --ExportFontweight: bold;
+  }
 }
 
-#position{
-    width: 40%;
-    margin: auto;
-    margin-top: 200px;
-    text-align: center;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --backgroundColor: #28292c;
+    --color: #d6d7d9;
+    --aColor: #97d9f7;
+    --textareaColor: #28292c;
+    --textareaBackGColor: #d6d7d9;
+    --toggleicon: #d6d7d9 transparent transparent transparent;
+    --ExportFontsize: 16px;
+    --ExportFontweight: normal;
+  }
+}
+
+body {
+  background-color: var(--backgroundColor);
+  color: var(--color);
+  transition: 0.5s;
+}
+
+#root {
+  width: 40%;
+  margin: auto;
+  margin-top: 200px;
+  text-align: center;
 }
 /*メインコンテンツ*/
-#clock_time{
-    font-family: 'League Gothic';
-    font-size: 175px;
-    transform: rotate(0.001deg);
+#clock {
+  font-family: "League Gothic";
+  font-size: 175px;
+  transform: rotate(0.001deg);
 }
-#memoExport{
-    font-size: var(--ExportFontsize);
-    font-weight: var(--ExportFontweight);
+
+#memoExport {
+  font-size: var(--ExportFontsize);
+  font-weight: var(--ExportFontweight);
 }
-a{
-    color: var(--aColor)
+
+a {
+  color: var(--aColor);
 }
-textarea{
-    color: var(--textareaColor);
-    background-color: var(--textareaBackGColor);
-    text-align: center;
-    width: 90%;
-    max-width: 250px;
-    resize: vertical;
+
+textarea {
+  color: var(--textareaColor);
+  background-color: var(--textareaBackGColor);
+  text-align: center;
+  width: 90%;
+  max-width: 250px;
+  resize: vertical;
 }
 
 /*表示非表示*/
-#toggleIcon{
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 15px 0 15px;
-    border-color: var(--toggleicon);
-    margin: auto;
-    display: block;
-    cursor: pointer;
+#toggleIcon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 15px 0 15px;
+  border-color: var(--toggleicon);
+  margin: auto;
+  display: block;
+  cursor: pointer;
 }
+
 .togglewrap #hiddenArea,
 .togglewrap > input[type="checkbox"] {
-    display: none;
+  display: none;
 }
-.togglewrap > input[type="checkbox"]:checked ~ #hiddenArea{
-    display: block;
+
+.togglewrap > input[type="checkbox"]:checked ~ #hiddenArea {
+  display: block;
 }

@@ -1,20 +1,22 @@
-const plus0 = (num) => {
-  let plus0;
-  if (num < 10) {
-    plus0 = "0" + num;
-  } else {
-    plus0 = num;
-  }
-  return plus0;
-};
-const clock = () => {
+/**
+ * 時刻用の文字列を出力
+ * @param {number} num - 1文字または2文字の時間または分
+ * @returns {string}
+ */
+const formatTime = (num) => (num < 10 ? "0" + num : "" + num);
+
+/**
+ * #clockに時刻を表示させる
+ * @returns {void}
+ */
+const displayClock = () => {
   const now = new Date();
 
-  let month = plus0(now.getMonth() + 1);
-  let hours = plus0(now.getHours());
-  let Minutes = plus0(now.getMinutes());
+  let hours = formatTime(now.getHours());
+  let Minutes = formatTime(now.getMinutes());
 
-  document.getElementById("clock_time").textContent = hours + ":" + Minutes;
+  document.getElementById("clock").textContent = hours + ":" + Minutes;
 };
-clock();
-setInterval(clock, 1000);
+
+displayClock();
+setInterval(displayClock, 1000);
